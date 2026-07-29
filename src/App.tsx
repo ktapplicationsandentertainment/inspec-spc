@@ -30,6 +30,15 @@ export default function App() {
           <Route path="/hypothesis-testing" element={<HypothesisTestingPage />} />
         </Routes>
       </main>
+      <footer className="app-footer">
+        <a href="https://github.com/ktapplicationsandentertainment/inspec-spc" target="_blank" rel="noopener">
+          Source code on GitHub
+        </a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://buymeacoffee.com/kellydt" target="_blank" rel="noopener">
+          Buy me a coffee
+        </a>
+      </footer>
     </div>
   );
 }
