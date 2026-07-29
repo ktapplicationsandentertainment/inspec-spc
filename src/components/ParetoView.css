@@ -1,0 +1,7 @@
+.pareto-view {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border, #d7dbe0);
+  border-radius: 8px;
+  padding: 0.75rem 1rem 0.5rem;
+  background: white;
+}

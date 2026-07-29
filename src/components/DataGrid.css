@@ -1,0 +1,81 @@
+.data-grid table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0.75rem;
+}
+
+.data-grid th,
+.data-grid td {
+  border: 1px solid var(--border, #d7dbe0);
+  padding: 0;
+}
+
+.data-grid th {
+  background: var(--surface-muted, #f4f6f8);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.4rem 0.5rem;
+  text-align: left;
+}
+
+.data-grid input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.data-grid input:focus {
+  outline: 2px solid var(--accent, #2463eb);
+  outline-offset: -2px;
+  background: #fbfdff;
+}
+
+.row-handle {
+  width: 1.75rem;
+  text-align: center;
+}
+
+.row-handle button {
+  border: none;
+  background: transparent;
+  color: #9aa1ab;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.3rem;
+}
+
+.row-handle button:hover:not(:disabled) {
+  color: #c0392b;
+}
+
+.row-handle button:disabled {
+  visibility: hidden;
+}
+
+.data-grid-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.data-grid-actions button {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border, #d7dbe0);
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.data-grid-actions button:hover {
+  background: var(--surface-muted, #f4f6f8);
+}
+
+.data-grid-actions button.danger {
+  margin-left: auto;
+  color: #c0392b;
+  border-color: #e6b3ac;
+}

@@ -1,0 +1,44 @@
+.results-panel {
+  margin-bottom: 2rem;
+}
+
+.interpretation {
+  font-size: 1.05rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.interpretation.ok {
+  background: #e8f5ee;
+  color: #1e6b42;
+  border: 1px solid #bfe3cd;
+}
+
+.interpretation.warn {
+  background: #fdecea;
+  color: #9a2f24;
+  border: 1px solid #f3c2bb;
+}
+
+.stats-table,
+.violations-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.stats-table th,
+.stats-table td,
+.violations-table th,
+.violations-table td {
+  border: 1px solid var(--border, #d7dbe0);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.stats-table th,
+.violations-table th {
+  background: var(--surface-muted, #f4f6f8);
+}
