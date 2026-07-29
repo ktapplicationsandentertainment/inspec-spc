@@ -4,6 +4,7 @@ import { GageRRGauge } from '../components/GageRRGauge';
 import { parseGageRRGrid } from '../lib/gageRR/parseGageRRGrid';
 import { calculateGageRRAnova, calculateGageRRRange } from '../lib/gageRR/gageRR';
 import { MAX_OPERATORS, MAX_TRIALS, MIN_OPERATORS, MIN_TRIALS } from '../lib/gageRR/constants';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 import type { GageRRComponent, GageRRResult } from '../lib/gageRR/types';
 
 type Method = 'anova' | 'range';
@@ -21,6 +22,12 @@ function makeBlankRows(width: number, rowCount = 5): string[][] {
 }
 
 export function GageRRPage() {
+  useDocumentMeta(
+    'Gage R&R Calculator (ANOVA & Range Method)',
+    'Analyze measurement system variation with a free Gage R&R calculator using the ANOVA method or the classic Average & Range method. Includes %GRR, ndc, and AIAG guidance.',
+    '/gage-rr',
+  );
+
   const [operatorCount, setOperatorCount] = useState(3);
   const [trialCount, setTrialCount] = useState(2);
   const [method, setMethod] = useState<Method>('anova');

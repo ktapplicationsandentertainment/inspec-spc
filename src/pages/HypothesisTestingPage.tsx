@@ -6,6 +6,7 @@ import { oneSampleTTest, pairedTTest, twoSampleTTest } from '../lib/hypothesisTe
 import { chiSquareTestOfIndependence } from '../lib/hypothesisTests/chiSquareTest';
 import type { TTestResult } from '../lib/hypothesisTests/ttest';
 import type { ChiSquareResult } from '../lib/hypothesisTests/chiSquareTest';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 
 type TestType = 'one-sample' | 'two-sample' | 'paired' | 'chi-square';
 
@@ -32,6 +33,12 @@ const SAMPLE_ROWS: Record<TestType, string[][]> = {
 };
 
 export function HypothesisTestingPage() {
+  useDocumentMeta(
+    'Hypothesis Testing Calculator (t-test, Chi-Square)',
+    'Run a one-sample, two-sample, or paired t-test, or a chi-square test of independence, with plain-language significance interpretation. Free, no signup.',
+    '/hypothesis-testing',
+  );
+
   const [testType, setTestType] = useState<TestType>('one-sample');
   const [rows, setRows] = useState<string[][]>(SAMPLE_ROWS['one-sample']);
   const [hypothesizedMean, setHypothesizedMean] = useState('10');

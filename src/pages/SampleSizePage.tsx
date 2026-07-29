@@ -5,11 +5,18 @@ import {
   sampleSizeForMean,
   sampleSizeForProportion,
 } from '../lib/sampleSize/sampleSize';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 
 type Goal = 'sample-size' | 'confidence-interval';
 type DataType = 'proportion' | 'mean';
 
 export function SampleSizePage() {
+  useDocumentMeta(
+    'Sample Size & Confidence Interval Calculator',
+    'Calculate the sample size you need for a proportion or mean, or compute a confidence interval from your data. Free, no signup.',
+    '/sample-size',
+  );
+
   const [goal, setGoal] = useState<Goal>('sample-size');
   const [dataType, setDataType] = useState<DataType>('proportion');
   const [confidenceLevel, setConfidenceLevel] = useState(0.95);

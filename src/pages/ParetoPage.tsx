@@ -3,6 +3,7 @@ import { DataGrid } from '../components/DataGrid';
 import { ParetoView } from '../components/ParetoView';
 import { parseParetoGrid } from '../lib/pareto/parseParetoGrid';
 import { calculateParetoAnalysis } from '../lib/pareto/pareto';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 
 const SAMPLE_DATA: string[][] = [
   ['Scratches', '50'],
@@ -13,6 +14,12 @@ const SAMPLE_DATA: string[][] = [
 ];
 
 export function ParetoPage() {
+  useDocumentMeta(
+    'Pareto Chart Generator',
+    'Paste category and count/cost data to generate a Pareto chart with an 80/20 cumulative line and automatic vital-few detection. Free, no signup.',
+    '/pareto',
+  );
+
   const [rows, setRows] = useState<string[][]>(SAMPLE_DATA);
   const [threshold, setThreshold] = useState(80);
 

@@ -8,6 +8,7 @@ import { calculateIMR } from '../lib/spc/imr';
 import { calculateXbarR } from '../lib/spc/xbarR';
 import { MAX_XBAR_R_SUBGROUP_SIZE, MIN_XBAR_R_SUBGROUP_SIZE } from '../lib/spc/constants';
 import { setHandoffRows } from '../lib/dataHandoff';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 import type { ControlChartResult } from '../lib/spc/types';
 
 type ChartTypeChoice = 'auto' | 'individuals' | 'subgrouped';
@@ -17,6 +18,12 @@ const SAMPLE_INDIVIDUALS: string[][] = [
 ].map((v) => [v]);
 
 export function ControlChartPage({ initialMode = 'auto' }: { initialMode?: ChartTypeChoice }) {
+  useDocumentMeta(
+    'Control Chart Generator (X̄-R, I-MR)',
+    'Paste your data and get an X̄-R or Individuals (I-MR) control chart instantly, with Western Electric out-of-control rules applied automatically. Free, no signup.',
+    '/control-chart',
+  );
+
   const navigate = useNavigate();
   const [rows, setRows] = useState<string[][]>(SAMPLE_INDIVIDUALS);
   const [chartTypeChoice, setChartTypeChoice] = useState<ChartTypeChoice>(initialMode);

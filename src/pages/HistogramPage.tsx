@@ -5,12 +5,19 @@ import { HistogramView } from '../components/HistogramView';
 import { parseGrid } from '../lib/parseGrid';
 import { calculateHistogram } from '../lib/histogram/histogram';
 import { setHandoffRows, takeHandoffRows } from '../lib/dataHandoff';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 
 const SAMPLE_DATA: string[][] = [
   '49.6', '47.6', '49.9', '51.3', '47.8', '51.2', '52.6', '52.4', '53.6', '52.1',
 ].map((v) => [v]);
 
 export function HistogramPage() {
+  useDocumentMeta(
+    'Histogram & Normality Check',
+    "Visualize your data's distribution with a histogram and normal curve overlay, plus an automatic skewness/kurtosis normality check. Free, no signup.",
+    '/histogram',
+  );
+
   const navigate = useNavigate();
   const [rows, setRows] = useState<string[][]>(() => takeHandoffRows() ?? SAMPLE_DATA);
   const [showNormalCurve, setShowNormalCurve] = useState(true);

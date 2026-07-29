@@ -6,6 +6,7 @@ import { parseGrid } from '../lib/parseGrid';
 import { calculateCapabilityFromRawData, calculateCapabilityFromSummary } from '../lib/capability/capability';
 import { analyzeShape } from '../lib/capability/skewnessKurtosis';
 import { takeHandoffRows } from '../lib/dataHandoff';
+import { useDocumentMeta } from '../lib/useDocumentMeta';
 import type { CapabilityIndexSet, CapabilityResult } from '../lib/capability/types';
 
 type InputMode = 'raw' | 'summary';
@@ -15,6 +16,12 @@ const SAMPLE_DATA: string[][] = [
 ].map((v) => [v]);
 
 export function CapabilityPage() {
+  useDocumentMeta(
+    'Process Capability Calculator (Cp, Cpk, Pp, Ppk)',
+    'Calculate Cp, Cpk, Pp, and Ppk from raw data or summary stats. Free process capability calculator with PPM, sigma level, and plain-language interpretation.',
+    '/capability',
+  );
+
   const [mode, setMode] = useState<InputMode>('raw');
   const [rows, setRows] = useState<string[][]>(() => takeHandoffRows() ?? SAMPLE_DATA);
   const [summaryMean, setSummaryMean] = useState('50.81');
